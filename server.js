@@ -1,5 +1,6 @@
 import express from 'express';
 import { getCarbData } from './functions/carbCalc.js';
+import { sugarLevel } from './functions/sugarLevel.js';
 
 const app = express()
 const port = 5000;
@@ -25,6 +26,19 @@ app.get("/carbcalc", async (req, res) => {
         console.error(error);
     }
 });
+
+app.get("/currentSugar", (req, res) => {
+        const currentSuagr = sugarLevel();
+        if(!currentSuagr)
+        {
+            console.log("Error with genrating sugal level");
+        }
+        else
+        {
+            console.log(currentSuagr);
+        }
+        
+    })
       
 
 app.listen(port, () => {console.log("Server started on port 5000") })
