@@ -39,6 +39,8 @@ app.get("/currentSugar", (req, res) => {
         }
         
     })
+
+
       
 
 app.listen(port, () => {console.log("Server started on port 5000") })
